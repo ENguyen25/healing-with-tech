@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import { Button, TextField, Typography, Paper } from "@mui/material";
 
 const Login = () => {
@@ -7,8 +8,14 @@ const Login = () => {
     password: "",
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      await axios.post('http://localhost:5000/auth/login', data)
+      console.log('Successfully logged in user')
+    } catch (error) {
+      console.error('Error registering new user:', error); 
+    }
   };
 
   return (
