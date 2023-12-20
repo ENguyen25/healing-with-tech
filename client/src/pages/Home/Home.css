@@ -1,0 +1,14 @@
+header {
+    text-align: center;
+}
+
+.pinkBorderLine {
+    width: 20px;
+    height: 4px;
+    background-color: #A46379;
+    margin: auto;
+}
+
+h1 {
+    margin-bottom: 2px;
+}
