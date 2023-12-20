@@ -1,4 +1,4 @@
-import PostMessage from "../models/postMessages.js";
+import PostMessage from "../models/postModel.js";
 
 export const getPost = async (req, res) => {
     try {

@@ -5,8 +5,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
-import postRoutes from './routes/posts.js';
-import postRoute from './routes/post.js';
+import postsRoutes from './routes/postsRoutes.js';
+import postRoute from './routes/postRoute.js';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 
@@ -14,8 +15,9 @@ app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 5
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cors());
 
-app.use('/posts', postRoutes);
+app.use('/posts', postsRoutes);
 app.use('/post', postRoute);
+app.use('/auth', authRoutes);
 
 const CONNECTION_URL = process.env.MONGODB_ATLAS
 const PORT = process.env.PORT || 5000;
