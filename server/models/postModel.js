@@ -13,6 +13,9 @@ const postSchema = new mongoose.Schema({
   image: {
     type: String,
   },
+  category: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: new Date(),

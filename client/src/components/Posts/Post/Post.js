@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Cookies from 'js-cookie';
 import axios from "axios";
 
 const Post = () => {
   const { id } = useParams();
 
   const [post, setPost] = useState('');
+  const [auth, setAuth] = useState(Cookies.get('token'))
 
   useEffect(() => {
     axios.get('http://localhost:5000/post/' + id)
@@ -18,6 +20,7 @@ const Post = () => {
 
   return (
     <div>
+      {auth ? <button>Edit</button> : ''}
       <img src={post.image} alt={post.title}></img>
       <h1>{post.title}</h1>
       <h2>{post.summary}</h2>

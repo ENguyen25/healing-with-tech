@@ -4,7 +4,7 @@ import axios from "axios";
 const AuthContext = createContext({});
 
 export const AuthProvider = ({children}) => {
-    const [auth, setAuth] = useState(null);
+    // const [auth, setAuth] = useState(null);
     const [token, setToken_] = useState(localStorage.getItem("token"));
 
     const setToken = (newToken) => {
@@ -14,7 +14,7 @@ export const AuthProvider = ({children}) => {
     useEffect(() => {
         if (token) {
           axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-          localStorage.setItem('token',token);
+          localStorage.setItem('token', token);
         } else {
           delete axios.defaults.headers.common["Authorization"];
           localStorage.removeItem('token')
@@ -29,18 +29,18 @@ export const AuthProvider = ({children}) => {
     [token]
     );
 
-    useEffect(() => {
-        if(!auth) {
-            try {
-                axios.get('http://localhost:5000/auth/user').then(({data}) => {
-                    console.log('receiving data: ' + data)
-                    setAuth(data);
-                })
-            } catch (error) {
-                console.log(error)
-            }
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(!auth) {
+    //         try {
+    //             axios.get('http://localhost:5000/auth/user').then(({data}) => {
+    //                 console.log('receiving data: ' + data)
+    //                 setAuth(data);
+    //             })
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+    // }, [])
 
     return (
         <AuthContext.Provider value={contextValue}>

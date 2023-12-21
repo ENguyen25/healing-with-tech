@@ -35,21 +35,15 @@ export const loginUser = async (req, res) => {
       const accessToken = jwt.sign(
         { username: user.username, id: user._id },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "30s" }
+        { expiresIn: "15m" }
       );
       const refreshToken = jwt.sign(
         { username: user.username, id: user._id },
         process.env.REFRESH_TOKEN_SECRET,
         { expiresIn: "1d" }
       );
-      
-      return res.json({
-        token: jwt.sign(
-            { username: user.username, id: user._id },
-            process.env.REFRESH_TOKEN_SECRET,
-            { expiresIn: "1d" },
-        )
-      });
+      res.cookie('jwt', refreshToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
+      res.json({ refreshToken });
     } else {
       res.json("Passwords do not match");
     }
@@ -60,23 +54,9 @@ export const loginUser = async (req, res) => {
 };
 
 export const getUser = async (req, res) => {
-  const { token } = req.cookies;
-  console.log(token);
-  if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
-      if (err) throw err;
-      res.json(user);
-    });
-  } else {
-    res.json(null);
-  }
-};
-
-export const profile = function (req, res, next) {
   if (req.user) {
-    res.send(req.user);
-    next();
+    res.json({ username: req.user });
   } else {
-    return res.status(401).json({ message: "Invalid token" });
+    res.json("user not found");
   }
 };

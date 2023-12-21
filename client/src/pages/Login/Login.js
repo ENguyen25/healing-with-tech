@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import useAuth from "../../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import { Button, TextField, Typography, Paper } from "@mui/material";
 
 const Login = () => {
   const navigate = useNavigate();
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,10 +17,13 @@ const Login = () => {
         username,
         password
       });
-      const token = response.data.token;
-      setToken(token)
-      localStorage.setItem('token', token);
-      axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
+      
+      if (response) {
+        Cookies.set('token', response.data.refreshToken);
+        navigate('/');
+      } else {
+        console.log('Invalid token');
+      }
     } catch (error) {
       console.error('Error logging in:', error);
     }
