@@ -12,7 +12,7 @@ const Registration = () => {
     try {
       e.preventDefault();
       await axios.post('http://localhost:5000/auth/register', data)
-      console.log('Successfully registered new user: ' + data.username + data.password)
+      console.log('Successfully registered new user!')
     } catch (error) {
       console.error('Error registering new user:', error); 
     }

@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from 'cors';
+import cookieParser from "cookie-parser";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -14,6 +15,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cors());
+app.use(cookieParser());
 
 app.use('/posts', postsRoutes);
 app.use('/post', postRoute);

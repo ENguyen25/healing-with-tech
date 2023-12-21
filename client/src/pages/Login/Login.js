@@ -1,22 +1,32 @@
 import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import useAuth from "../../context/AuthProvider";
 import axios from 'axios';
 import { Button, TextField, Typography, Paper } from "@mui/material";
 
 const Login = () => {
-  const [data, setData] = useState({
-    username: "",
-    password: "",
-  });
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+
     try {
-      e.preventDefault();
-      await axios.post('http://localhost:5000/auth/login', data)
-      console.log('Successfully logged in user')
+      const response = await axios.post('http://localhost:5000/auth/login', {
+        username,
+        password
+      });
+      const token = response.data.token;
+      setToken(token)
+      localStorage.setItem('token', token);
+      axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
     } catch (error) {
-      console.error('Error registering new user:', error); 
+      console.error('Error logging in:', error);
     }
-  };
+  }
 
   return (
     <div>
@@ -26,17 +36,17 @@ const Login = () => {
           <TextField
             variant="outlined"
             label="Username"
-            value={data.username}
+            value={username}
             fullWidth
-            onChange={(e) => setData({...data, username: e.target.value})}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
             type="password"
             variant="outlined"
             label="Password"
-            value={data.password}
+            value={password}
             fullWidth
-            onChange={(e) => setData({...data, password: e.target.value})}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <Button
             variant="contained"
