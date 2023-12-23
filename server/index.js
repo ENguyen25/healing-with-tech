@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ path: './.env' });
 
 import postsRoutes from './routes/postsRoutes.js';
 import postRoute from './routes/postRoute.js';
