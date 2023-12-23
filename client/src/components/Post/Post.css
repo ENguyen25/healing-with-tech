@@ -1,52 +1,30 @@
-import { makeStyles } from '@material-ui/core/styles';
+.blog-post-page {
+  padding-left: 6.2%;
+  padding-right: 6.2%;
+}
 
-export default makeStyles({
-  media: {
-    height: 0,
-    paddingTop: '56.25%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    backgroundBlendMode: 'darken',
-  },
-  border: {
-    border: 'solid',
-  },
-  fullHeightCard: {
-    height: '100%',
-  },
-  card: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    borderRadius: '15px',
-    height: '100%',
-    position: 'relative',
-  },
-  overlay: {
-    position: 'absolute',
-    top: '20px',
-    left: '20px',
-    color: 'white',
-  },
-  overlay2: {
-    position: 'absolute',
-    top: '20px',
-    right: '20px',
-    color: 'white',
-  },
-  grid: {
-    display: 'flex',
-  },
-  details: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: '20px',
-  },
-  title: {
-    padding: '0 16px',
-  },
-  cardActions: {
-    padding: '0 16px 8px 16px',
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
-});
+.thumbnail-image-page {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.blog-post-content {
+  padding-left: 9%;
+  padding-right: 9%;
+}
+
+.post-title-page {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: 1.25em;
+}
+
+.post-content-page {
+  font-family: "Open Sans",sans-serif;
+  font-size: 15px;
+  line-height: 27px;
+  font-weight: 400;
+  color: #777;
+}

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../App.css";
 import "./Header.css";
 
-import logo from '../../images/oca.png';
+import logo from '../../images/logo3.png';
 
 const Header = () => {
   const [admin, setAdmin] = useState(null);

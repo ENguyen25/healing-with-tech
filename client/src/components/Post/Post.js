@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import Cookies from 'js-cookie';
 import axios from "axios";
 
+import '../../App.css';
+import './Post.css';
+
 const Post = () => {
   const { id } = useParams();
 
@@ -12,20 +15,20 @@ const Post = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/post/' + id)
       .then((postData) => {
-        console.log(postData.data)
         setPost(postData.data)
       })
       .catch((error) => console.log(error))
   }, [])
 
   return (
-    <div>
+    <section className="blog-post-page">
       {auth ? <button>Edit</button> : ''}
-      <img src={post.image} alt={post.title}></img>
-      <h1>{post.title}</h1>
-      <h2>{post.summary}</h2>
-      <p>{post.content}</p>
-    </div>
+      <img className="thumbnail-image-page" src={post.image} alt={post.title}></img>
+      <div className="blog-post-content">
+        <h1 className="post-title-page">{post.title}</h1>
+        <p className="post-content-page">{post.content}</p>
+      </div>
+    </section>
   );
 };
 
