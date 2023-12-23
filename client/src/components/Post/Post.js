@@ -13,7 +13,7 @@ const Post = () => {
   const [auth, setAuth] = useState(Cookies.get('token'))
 
   useEffect(() => {
-    axios.get('https://theselfcarecoder.onrender.com:10000/post/' + id)
+    axios.get('https://theselfcarecoder.onrender.com/post/' + id)
       .then((postData) => {
         setPost(postData.data)
       })

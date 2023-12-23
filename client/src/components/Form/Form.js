@@ -23,7 +23,7 @@ const Form = () => {
         'image': image
       }
 
-      await axios.post('https://theselfcarecoder.onrender.com:10000/posts', formData);
+      await axios.post('https://theselfcarecoder.onrender.com/posts', formData);
 
       console.log(formData)
       console.log('Data and image uploaded successfully');

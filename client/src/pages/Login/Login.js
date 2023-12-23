@@ -13,7 +13,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "https://theselfcarecoder.onrender.com:10000/auth/login",
+        "https://theselfcarecoder.onrender.com/auth/login",
         {
           username,
           password,

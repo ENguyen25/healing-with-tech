@@ -32,8 +32,7 @@ const Header = () => {
               }}>Logout</a>
               <Link to='/new'>New Post</Link>
             </div>
-          )  : ''}
-
+          )  : <Link to='/login'>Login</Link> }
         </div>
       </div>
       <div className="primary-navbar">

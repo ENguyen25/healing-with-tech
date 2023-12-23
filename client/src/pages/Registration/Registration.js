@@ -10,7 +10,7 @@ const Registration = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      await axios.post('http://localhost:5000/auth/register', data)
+      await axios.post('https://theselfcarecoder.onrender.com/auth/register', data)
       console.log('Successfully registered new user!')
     } catch (error) {
       console.error('Error registering new user:', error); 
