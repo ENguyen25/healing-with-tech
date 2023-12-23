@@ -6,7 +6,7 @@ import NewPost from "./pages/NewPost/NewPost";
 import Login from "./pages/Login/Login";
 import Registration from "./pages/Registration/Registration";
 import Header from "./components/Header/Header";
-import Post from "./components/Posts/Post/Post";
+import Post from "./components/Post/Post";
 import Footer from "./components/Footer/Footer";
 
 function App() {

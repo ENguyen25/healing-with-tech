@@ -1,0 +1,63 @@
+.primary-navbar, .secondary-navbar {
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+.secondary-navbar {
+    background-color: #041421;
+    padding: 1.5% 6.2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.secondary-navbar a {
+    color: #999;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.secondary-navbar a:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.secondary-navbar-links a:first-child,
+.login-link a:first-child {
+    margin-right: 30px;
+}
+
+.primary-navbar {
+    padding-left: 6.2%;
+    padding-right: 6.2%;
+}
+
+.primary-navbar a:hover {
+    color: #5E8D83;
+}
+
+.primary-navbar-logo {
+    width: 100%;
+    text-align: center;
+}
+
+.logo {
+    width: 10%;
+    padding-top: 35px;
+}
+
+.primary-navbar-links {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.primary-navbar-links a {
+    margin-right: 25px;
+    font-size: 12px;
+    line-height: 28px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #041421;
+}

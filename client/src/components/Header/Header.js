@@ -1,46 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import "../../App.css";
-import { Link } from "react-router-dom";
+import "./Header.css";
 
-import { AppBar, Button, Container, Toolbar, Typography } from "@mui/material";
-import { ThemeProvider, createTheme } from "@mui/material";
-
-let theme = createTheme();
-
-theme = createTheme(theme, {
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          color: "#000",
-        },
-      },
-    },
-    MuiToolbar: {
-      styleOverrides: {
-        root: {
-          [theme.breakpoints.up("xs")]: {
-            paddingLeft: 0,
-            paddingRight: 0,
-            minHeight: "5rem",
-          }
-        },
-      },
-    },
-  },
-});
+import logo from '../../images/oca.png';
 
 const Header = () => {
-  const adminUser = null;
+  const [admin, setAdmin] = useState(null);
+  const data = localStorage.getItem('token');
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setAdmin(localStorage.getItem('token'));
+  }, [data])
 
   return (
-    <ThemeProvider theme={theme}>
-      <AppBar sx={{ backgroundColor: "#FFF", boxShadow: "none", borderBottom: "4px solid #000"}} position="static">
-        <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
-          <Typography sx={{ color: "#000", fontSize: "2rem" }}>Eudaimonia</Typography>
-        </Toolbar>
-      </AppBar>
-    </ThemeProvider>
+    <section>
+      <div className="secondary-navbar">
+        <div className="secondary-navbar-links">
+          <Link to='/about'>About</Link>
+          <Link to='/contact'>Contact</Link>
+        </div>
+        <div>
+          {admin ? (
+            <div className="login-link">
+              <a onClick={(e) => {
+                setAdmin(localStorage.removeItem('token'));
+                navigate('/login');
+              }}>Logout</a>
+              <Link to='/new'>New Post</Link>
+            </div>
+          )  : ''}
+
+        </div>
+      </div>
+      <div className="primary-navbar">
+        <div className="primary-navbar-logo">
+          <img className="logo" src={logo} alt="Evelyn Nguyen's Learning Blog" />
+        </div>
+        <div className="primary-navbar-links">
+          <Link to='/'>Home</Link>
+          <Link to='/latest'>Latest</Link>
+          <Link to='/front-end'>Front-End</Link>
+          <Link to='/back-end'>Back-End</Link>
+          <Link to='/full-stack'>Full-Stack</Link>
+          <Link to='/design'>Design</Link>
+        </div>
+      </div>
+    </section>
   );
 };
 

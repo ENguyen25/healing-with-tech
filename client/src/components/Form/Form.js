@@ -4,7 +4,6 @@ import axios from 'axios';
 import FileBase from 'react-file-base64';
 import Markdown from 'react-markdown';
 
-import { styled } from '@mui/material/styles';
 import { Button, Paper, TextField, Typography } from '@mui/material';
 import { CloudUpload } from '@material-ui/icons';
 
@@ -43,18 +42,6 @@ const Form = () => {
     setContent('')
     setImage(null)
   }
-
-  const VisuallyHiddenInput = styled('input')({
-    clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
-    height: 1,
-    overflow: 'hidden',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    whiteSpace: 'nowrap',
-    width: 1,
-  });
 
   return (
     <Paper>

@@ -20,6 +20,7 @@ const Login = () => {
       
       if (response) {
         Cookies.set('token', response.data.refreshToken);
+        localStorage.setItem('token', response.data.refreshToken);
         navigate('/');
       } else {
         console.log('Invalid token');

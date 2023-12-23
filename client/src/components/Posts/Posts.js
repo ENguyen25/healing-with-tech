@@ -1,41 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CircularProgress, Grid } from '@mui/material';
-import axios from "axios";
 
-import './Posts.css';
+import "./Posts.css";
 
-const Posts = () => {
-
-  const [allPosts, setAllPosts] = useState([]);
+const Posts = ({data, label}) => {
+  const postData = data;
+  const category = label;
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/posts')
-      .then((postData) => {
-        console.log(postData.data)
-        setAllPosts(postData.data)
-      })
-      .catch((error) => console.log(error))
-  }, [])
-  
-  return (
-    !allPosts.length ? <CircularProgress /> : (
-      <Grid container alignItems="stretch" spacing={3}>
-        {allPosts.map((post) => (
-          <Grid key={post._id} item xs={12} sm={12} md={6}>
-            <div>
-              <img className="thumbnailImage" src={post.image} alt={post.title} />
-              <div>
-                <Link to={`/post/${post._id}`}>
-                  <h2>{post.title}</h2>
-                </Link>
-                <p>{post.summary}</p>
-              </div>
+    setPosts(postData);
+  }, [postData])
+
+  return !posts.length ? (
+    ""
+  ) : (
+    <section className="category-section">
+      <div className="post-lineup-header">
+        <h5>{category}</h5>
+        <h5>View More</h5>
+      </div>
+      <div className="post-lineup">
+        {posts.map((post) => (
+          <div className="post-card">
+            <img className="thumbnail-image" src={post.image} alt={post.title} />
+            <div className="post-content">
+              <Link to={`/post/${post._id}`}>
+                <h2 className="post-title">{post.title}</h2>
+              </Link>
+              <p className="category-tag"></p>
+              <p className="post-summary">{post.summary}</p>
+              <p className="date-created"></p>
             </div>
-          </Grid>
+          </div>
         ))}
-      </Grid>
-    )
+      </div>
+
+    </section>
   );
 };
 
