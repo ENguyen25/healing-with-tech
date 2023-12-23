@@ -19,7 +19,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/posts")
+      .get("https://theselfcarecoder.onrender.com:10000/posts")
       .then((postData) => {
         setLatestPosts(postData.data);
       })
@@ -28,7 +28,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/posts")
+      .get("https://theselfcarecoder.onrender.com:10000/posts")
       .then((postData) => {
         setFrontEndPosts(postData.data);
       })
@@ -37,7 +37,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/posts")
+      .get("https://theselfcarecoder.onrender.com:10000/posts")
       .then((postData) => {
         setBackEndPosts(postData.data);
       })
