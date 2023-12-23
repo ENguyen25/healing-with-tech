@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
-import Cookies from 'js-cookie';
-import { Button, TextField, Typography, Paper } from "@mui/material";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,54 +12,41 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://theselfcarecoder.onrender.com:10000/auth/login', {
-        username,
-        password
-      });
-      
+      const response = await axios.post(
+        "https://theselfcarecoder.onrender.com:10000/auth/login",
+        {
+          username,
+          password,
+        }
+      );
+
       if (response) {
-        Cookies.set('token', response.data.refreshToken);
-        localStorage.setItem('token', response.data.refreshToken);
-        navigate('/');
+        Cookies.set("token", response.data.refreshToken);
+        localStorage.setItem("token", response.data.refreshToken);
+        navigate("/");
       } else {
-        console.log('Invalid token');
+        console.log("Invalid token");
       }
     } catch (error) {
-      console.error('Error logging in:', error);
+      console.error("Error logging in:", error);
     }
-  }
+  };
 
   return (
     <div>
-      <Paper>
-        <form onSubmit={handleSubmit}>
-          <Typography variant="h6"></Typography>
-          <TextField
-            variant="outlined"
-            label="Username"
-            value={username}
-            fullWidth
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <TextField
-            type="password"
-            variant="outlined"
-            label="Password"
-            value={password}
-            fullWidth
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            type="submit"
-            fullWidth
-          >
-            Submit
-          </Button>
-        </form>
-      </Paper>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="text"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button>Submit</button>
+      </form>
     </div>
   );
 };

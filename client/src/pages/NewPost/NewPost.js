@@ -1,14 +1,13 @@
 import React from 'react';
-import { Container } from '@mui/material';
 
 import Form from '../../components/Form/Form';
 
 const NewPost = () => {
   return (
     <>
-      <Container maxWidth='lg'>
+      <div>
         <Form />
-      </Container>
+      </div>
     </>
   )
 }

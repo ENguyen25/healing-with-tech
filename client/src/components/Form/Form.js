@@ -4,9 +4,6 @@ import axios from 'axios';
 import FileBase from 'react-file-base64';
 import Markdown from 'react-markdown';
 
-import { Button, Paper, TextField, Typography } from '@mui/material';
-import { CloudUpload } from '@material-ui/icons';
-
 const Form = () => {
   
   const [title, setTitle] = useState('');
@@ -44,21 +41,32 @@ const Form = () => {
   }
 
   return (
-    <Paper>
+    <div>
       <Markdown>{'# Your markdown'}</Markdown>
       <form onSubmit={handleSubmit}>
-        <Typography variant="h6"></Typography>
-        <TextField name="title" variant="outlined" label="Title" value={title} fullWidth onChange={(e => setTitle(e.target.value))} />
-        <TextField name="summary" variant="outlined" label="Summary" value={summary} fullWidth onChange={(e => setSummary(e.target.value))}/>
-        <TextField name="content" variant="outlined" label="Content" value={content} fullWidth multiline rows={4} onChange={(e => setContent(e.target.value))}/>
-        <Button component="label" variant="contained" startIcon={<CloudUpload />}>
+      <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          value={summary}
+          onChange={(e) => setSummary(e.target.value)}
+        />
+        <input
+          type="text"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        <button>
           Upload file
           <FileBase type="file" multiple={false} onDone={({ base64 }) => setImage(base64)} />
-        </Button>
-        <Button variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" color="secondary" size="small" fullWidth onClick={handleClear}>Clear</Button>
+        </button>
+        <button type="submit">Submit</button>
+        <button onClick={handleClear}>Clear</button>
       </form>
-    </Paper>
+    </div>
     );
 };
 
