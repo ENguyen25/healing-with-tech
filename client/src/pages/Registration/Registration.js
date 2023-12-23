@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button, TextField, Typography, Paper } from "@mui/material";
 import axios from 'axios';
 
 const Registration = () => {
@@ -20,35 +19,21 @@ const Registration = () => {
 
   return (
     <div>
-      <Paper>
         <form onSubmit={handleSubmit}>
-          <Typography variant="h6"></Typography>
-          <TextField
-            variant="outlined"
-            label="Username"
+          <input
+            type="text"
             value={data.username}
-            fullWidth
             onChange={(e) => setData({...data, username: e.target.value})}
           />
-          <TextField
-            type="password"
-            variant="outlined"
-            label="Password"
+          <input
+            type="text"
             value={data.password}
-            fullWidth
             onChange={(e) => setData({...data, password: e.target.value})}
           />
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            type="submit"
-            fullWidth
-          >
+          <button type="submit">
             Submit
-          </Button>
+          </button>
         </form>
-      </Paper>
     </div>
   );
 };
