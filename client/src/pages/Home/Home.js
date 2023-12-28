@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from 'react';
 import Posts from '../../components/Posts/Posts';
 import Carousel from '../../components/Carousel/Carousel';
+
+import { DataContext } from '../../context/DataContext';
 
 import '../../App.css';
 import './Home.css';
 
 const Home = () => {
+  const data = useContext(DataContext);
+
   const [latestPosts, setLatestPosts] = useState([]);
   const [frontEndPosts, setFrontEndPosts] = useState([]);
   const [backEndPosts, setBackEndPosts] = useState([]);
@@ -18,38 +21,17 @@ const Home = () => {
   };
 
   useEffect(() => {
-    axios
-      .get("https://theselfcarecoder.onrender.com/posts")
-      .then((postData) => {
-        setLatestPosts(postData.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get("https://theselfcarecoder.onrender.com/posts")
-      .then((postData) => {
-        setFrontEndPosts(postData.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get("https://theselfcarecoder.onrender.com/posts")
-      .then((postData) => {
-        setBackEndPosts(postData.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    setLatestPosts(data.data)
+    setFrontEndPosts(data.data)
+    setBackEndPosts(data.data)
+  }, [data]);
 
   return (
     <section className='container'>
       <Carousel />
-      <Posts key={1} data={latestPosts} label={categories.latest} />
-      <Posts key={2} data={frontEndPosts} label={categories.frontEnd} />
-      <Posts key={3} data={backEndPosts} label={categories.backEnd} />
+      <Posts key={123} data={latestPosts} label={categories.latest} />
+      <Posts key={234} data={frontEndPosts} label={categories.frontEnd} />
+      <Posts key={345} data={backEndPosts} label={categories.backEnd} />
     </section>
   )
 }

@@ -18,7 +18,7 @@ const Post = () => {
         setPost(postData.data)
       })
       .catch((error) => console.log(error))
-  }, [])
+  }, [id])
 
   return (
     <section className="blog-post-page">
