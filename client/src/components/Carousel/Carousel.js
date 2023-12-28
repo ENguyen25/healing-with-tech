@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
+import '../../App.css';
 import './Carousel.css';
 
-import bluelandscape from '../../images/bluelandscape.jpg';
+const Carousel = ({data}) => {
+  const [post, setPost] = useState('');
 
-const Carousel = () => {
+  useEffect(() => {
+    setPost(data)
+  }, [data])
+
   return (
-    <section className='carousel'>
-        <img src={bluelandscape} alt="blue landscape" />
+    <section style={{ backgroundImage: `url(${post.image})` }} className='carousel'>
+      <div className="carousel-content">
+        <h1>{post.title}</h1>
+        <Link to={`/post/${post._id}`}>
+          <button>Read More</button>
+        </Link>
+      </div>
     </section>
   )
 }

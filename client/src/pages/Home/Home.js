@@ -11,8 +11,7 @@ const Home = () => {
   const data = useContext(DataContext);
 
   const [latestPosts, setLatestPosts] = useState([]);
-  const [frontEndPosts, setFrontEndPosts] = useState([]);
-  const [backEndPosts, setBackEndPosts] = useState([]);
+  const [carouselPosts, setCarouselPosts] = useState([]);
 
   const categories = {
     latest: 'Latest',
@@ -21,17 +20,14 @@ const Home = () => {
   };
 
   useEffect(() => {
-    setLatestPosts(data.data)
-    setFrontEndPosts(data.data)
-    setBackEndPosts(data.data)
+    setLatestPosts(data.data.postData);
+    setCarouselPosts(data.data.carousel);
   }, [data]);
 
   return (
     <section className='container'>
-      <Carousel />
-      <Posts key={123} data={latestPosts} label={categories.latest} />
-      {/* <Posts key={234} data={frontEndPosts} label={categories.frontEnd} />
-      <Posts key={345} data={backEndPosts} label={categories.backEnd} /> */}
+      {carouselPosts ? (<Carousel key={234} data={carouselPosts} />) : ''}
+      {latestPosts ? (<Posts key={123} data={latestPosts} label={categories.latest} />) : ''}
     </section>
   )
 }

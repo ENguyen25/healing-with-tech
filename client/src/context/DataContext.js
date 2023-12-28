@@ -8,7 +8,10 @@ export const DataProvider = ({children}) => {
 
     useEffect(() => {
         axios.get('https://theselfcarecoder.onrender.com/posts')
-            .then((response) => setData(response.data))
+            .then((response) => setData({
+                postData: response.data,
+                carousel: response.data.pop(),
+            }))
             .catch((error) => console.log(error))
     }, [])
 
