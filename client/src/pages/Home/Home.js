@@ -30,8 +30,8 @@ const Home = () => {
     <section className='container'>
       <Carousel />
       <Posts key={123} data={latestPosts} label={categories.latest} />
-      <Posts key={234} data={frontEndPosts} label={categories.frontEnd} />
-      <Posts key={345} data={backEndPosts} label={categories.backEnd} />
+      {/* <Posts key={234} data={frontEndPosts} label={categories.frontEnd} />
+      <Posts key={345} data={backEndPosts} label={categories.backEnd} /> */}
     </section>
   )
 }

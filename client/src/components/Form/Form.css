@@ -1,0 +1,33 @@
+.new-post-form {
+    width: 50%;
+    margin: auto;
+    margin-top: 3em;
+    margin-bottom: 8em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    margin-bottom: 1em;
+}
+
+.input-container > label {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.input-container > input,
+.input-container > textarea,
+.input-container > select {
+    font-family: 'Montserrat';
+    padding: 10px;
+    border: solid 1px #999;
+    border-radius: 3px;
+}
+
+.new-post-buttons {
+    display: flex;
+    justify-content: space-between;
+}

@@ -4,6 +4,7 @@
 
 .post-lineup {
     display: flex;
+    flex-wrap: wrap;
     gap: 3%;
 }
 
@@ -22,7 +23,8 @@
 }
 
 .post-card {
-    width: 32%;
+    width: 31%;
+    margin-bottom: 2em;
 }
 
 .post-card:hover {

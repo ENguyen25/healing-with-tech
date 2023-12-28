@@ -1,0 +1,21 @@
+.about-page {
+    display: flex;
+}
+
+.about-left {
+    width: 60%;
+    padding-right: 5em;
+}
+
+.about-left p:first-child {
+    margin-top: 2em;
+}
+
+.about-right {
+    width: 40%;
+}
+
+.about-right img {
+    width: 25rem;
+    margin-top: 2em;
+}

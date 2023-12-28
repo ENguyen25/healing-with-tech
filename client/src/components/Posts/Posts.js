@@ -18,7 +18,6 @@ const Posts = ({data, label}) => {
     <section className="category-section">
       <div className="post-lineup-header">
         <h5>{category}</h5>
-        <h5>View More</h5>
       </div>
       <div className="post-lineup">
         {posts.map((post) => (

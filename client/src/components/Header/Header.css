@@ -23,7 +23,7 @@
     cursor: pointer;
 }
 
-.secondary-navbar-links a:first-child,
+.secondary-navbar-links a:not(:last-child),
 .login-link a:first-child {
     margin-right: 30px;
 }

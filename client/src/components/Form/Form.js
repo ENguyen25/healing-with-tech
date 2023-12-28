@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import FileBase from 'react-file-base64';
-import Markdown from 'react-markdown';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import "../../App.css";
+import "./Form.css";
 
 const Form = () => {
-  
-  const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
-  const [content, setContent] = useState('');
-  const [image, setImage] = useState(null);
+  const [title, setTitle] = useState("");
+  const [summary, setSummary] = useState("");
+  const [content, setContent] = useState("");
+  const [category, setCategory] = useState("");
+  const [image, setImage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -17,57 +18,90 @@ const Form = () => {
       e.preventDefault();
 
       const formData = {
-        'title': title,
-        'summary': summary,
-        'content': content,
-        'image': image
-      }
+        title: title,
+        summary: summary,
+        content: content,
+        category: category,
+        image: image,
+      };
 
-      await axios.post('https://theselfcarecoder.onrender.com/posts', formData);
+      await axios.post("https://theselfcarecoder.onrender.com/posts", formData);
 
-      console.log(formData)
-      console.log('Data and image uploaded successfully');
+      console.log(formData);
+      console.log("Data and image uploaded successfully");
 
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      console.error('Error uploading data and image:', error);
+      console.error("Error uploading data and image:", error);
     }
   };
 
   const handleClear = () => {
-    setTitle('')
-    setContent('')
-    setImage(null)
-  }
+    setTitle("");
+    setSummary("");
+    setContent("");
+    setImage("");
+  };
 
   return (
-    <div>
-      <Markdown>{'# Your markdown'}</Markdown>
-      <form onSubmit={handleSubmit}>
-      <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          value={summary}
-          onChange={(e) => setSummary(e.target.value)}
-        />
-        <input
-          type="text"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-        <button>
-          Upload file
-          <FileBase type="file" multiple={false} onDone={({ base64 }) => setImage(base64)} />
-        </button>
-        <button type="submit">Submit</button>
-        <button onClick={handleClear}>Clear</button>
+    <>
+      <form className="new-post-form" onSubmit={handleSubmit}>
+        <div className="input-container">
+          <label htmlFor='title'>Post Title</label>
+          <input
+            type="text"
+            placeholder="Enter post title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor='excerpt'>Post Excerpt</label>
+          <textarea
+            type="text"
+            placeholder="Enter post excerpt"
+            rows='2'
+            value={summary}
+            onChange={(e) => setSummary(e.target.value)}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor='content'>Post Content</label>
+          <textarea
+            type="text"
+            placeholder="Enter post content"
+            rows='20'
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor='category'>Post Category</label>
+          <select name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
+            <option value="">Select Category</option>
+            <option value="Front-End">Front-End</option>
+            <option value="Back-End">Back-End</option>
+            <option value="Full-Stack">Full-Stack</option>
+            <option value="Self-Care">Self-Care</option>
+            <option value="Career">Career</option>
+          </select>
+        </div>
+        <div className="input-container">
+          <label htmlFor='image'>Image URL</label>
+          <input
+            type="text"
+            placeholder="Enter image URL"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+        </div>
+        <div className="new-post-buttons">
+          <button className="btn btn-lightgray" onClick={handleClear}>Clear</button>
+          <button className="btn btn-darkgreen" type="submit">Submit</button>
+        </div>
       </form>
-    </div>
-    );
+    </>
+  );
 };
 
 export default Form;

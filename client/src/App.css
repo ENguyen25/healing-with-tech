@@ -8,12 +8,57 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
 }
 
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.page-header {
+    text-align: center;
+    margin-top: 2em;
+}
+
 .container {
     padding-left: 6.2%;
     padding-right: 6.2%;
 }
 
+.container-2 {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 a {
     text-decoration: none;
     color: #000;
+}
+
+.btn {
+    border: none;
+    padding: 13px 30px;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn-lightgray {
+    background-color: #cbcbcb;
+}
+
+.btn-lightgray:hover {
+    background-color: #e7e7e7;
+    color: #999;
+}
+
+.btn-darkgreen {
+    background-color: #114538;
+    color: white;
+}
+
+.btn-darkgreen:hover {
+    background-color: #5E8D83;
 }

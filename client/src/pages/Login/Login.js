@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
+import "../../App.css";
+import "../../components/Form/Form";
+
 const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -33,19 +36,28 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="text"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button>Submit</button>
+    <div className="container">
+      <h1 className="page-header">Login</h1>
+      <form className="new-post-form" onSubmit={handleSubmit}>
+        <div className="input-container">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            value={username}
+            placeholder="Enter username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            value={password}
+            placeholder="Enter password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button className="btn btn-darkgreen">Submit</button>
       </form>
     </div>
   );
