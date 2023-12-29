@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { DataContext } from '../../context/DataContext';
 
 import '../../App.css';
 import './Carousel.css';
 
-const Carousel = ({data}) => {
-  const [post, setPost] = useState('');
+const Carousel = () => {
+  const data = useContext(DataContext);
+  const [post, setPost] = useState(null);
 
   useEffect(() => {
-    setPost(data)
+    setPost(data.data.carousel)
   }, [data])
 
-  return (
+  return !post ? ('') : (
     <section style={{ backgroundImage: `url(${post.image})` }} className='carousel'>
       <div className="carousel-content">
         <h1>{post.title}</h1>

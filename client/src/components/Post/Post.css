@@ -5,7 +5,7 @@
 
 .thumbnail-image-page {
   width: 100%;
-  height: 50vh;
+  height: 35em;
   object-fit: cover;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .post-title-page {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 700;
   letter-spacing: -.04em;
   line-height: 1.25em;
@@ -23,8 +23,46 @@
 
 .post-content-page {
   font-family: "Open Sans",sans-serif;
-  font-size: 15px;
+  font-size: 35px;
   line-height: 27px;
   font-weight: 400;
   color: #041421;
+}
+
+@media screen and (max-width: 1600px) {
+  .post-title-page {
+    font-size: 40px;
+  }
+
+  .post-content-page {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .post-title-page {
+    font-size: 32px;
+  }
+
+  .post-content-page {
+    font-size: 18px;
+  }
+
+  .thumbnail-image-page {
+    height: 25em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .post-title-page {
+    font-size: 28px;
+  }
+  
+  .post-content-page {
+    font-size: 14px;
+  }
+  
+  .thumbnail-image-page {
+    height: 20em;
+  }
 }

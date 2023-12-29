@@ -1,5 +1,5 @@
 .carousel {
-    height: 50vh;
+    height: 35em;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,7 +7,7 @@
 }
 
 .carousel-content {
-    padding-top: 5rem;
+    padding-top: 9em;
 }
 
 .carousel-content h1 {
@@ -22,10 +22,75 @@
     padding: 15px 30px;
     border: none;
     font-weight: 600;
+    font-size: 20px;
 }
 
 .carousel-content button:hover {
     background-color: #041421;
     color: white;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1440px) {
+    .carousel {
+        height: 30em;
+    }
+
+    .carousel-content {
+        padding-top: 7em;
+    }
+
+    .carousel-content button {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .carousel {
+        height: 27em;
+    }
+
+    .carousel-content {
+        padding-top: 6em;
+    }
+
+    .carousel-content h1 {
+        font-size: 45px;
+    }
+
+    .carousel-content button {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .carousel {
+        height: 25em;
+    }
+
+    .carousel-content {
+        padding-top: 5em;
+    }
+
+    .carousel-content h1 {
+        font-size: 40px;
+    }
+
+    .carousel-content button {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel {
+        height: 20em;
+    }
+
+    .carousel-content {
+        padding-top: 4em;
+    }
+
+    .carousel-content h1 {
+        font-size: 35px;
+    }
 }

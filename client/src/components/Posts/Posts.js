@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { DataContext } from '../../context/DataContext';
 
 import "./Posts.css";
 
-const Posts = ({data, label}) => {
-  const postData = data;
-  const category = label;
-  const [posts, setPosts] = useState([]);
+const Posts = () => {
+  const postData = useContext(DataContext);
+  const [posts, setPosts] = useState(null);
 
   useEffect(() => {
-    setPosts(postData);
+    setPosts(postData.data.postData);
   }, [postData])
 
-  return !posts.length ? (
+  return !posts ? (
     ""
   ) : (
     <section className="category-section">
       <div className="post-lineup-header">
-        <h5>{category}</h5>
+        <h5>Latest</h5>
       </div>
       <div className="post-lineup">
         {posts.map((post) => (

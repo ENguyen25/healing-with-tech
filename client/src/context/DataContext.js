@@ -10,7 +10,7 @@ export const DataProvider = ({children}) => {
         axios.get('https://theselfcarecoder.onrender.com/posts')
             .then((response) => setData({
                 postData: response.data,
-                carousel: response.data.pop(),
+                carousel: response.data.pop()
             }))
             .catch((error) => console.log(error))
     }, [])

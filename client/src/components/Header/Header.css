@@ -4,14 +4,14 @@
 
 .secondary-navbar {
     background-color: #041421;
-    padding: 1.5% 6.2%;
+    padding: 2% 6.2%;
     display: flex;
     justify-content: space-between;
 }
 
 .secondary-navbar a {
     color: #999;
-    font-size: 10px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 1;
     text-transform: uppercase;
@@ -25,7 +25,7 @@
 
 .secondary-navbar-links a:not(:last-child),
 .login-link a:first-child {
-    margin-right: 30px;
+    margin-right: 50px;
 }
 
 .primary-navbar {
@@ -43,7 +43,7 @@
 }
 
 .logo {
-    width: 50%;
+    width: 45%;
     padding-top: 35px;
 }
 
@@ -54,10 +54,57 @@
 
 .primary-navbar-links a {
     margin-right: 25px;
-    font-size: 12px;
+    font-size: 20px;
     line-height: 28px;
     font-weight: 600;
     letter-spacing: .1em;
     text-transform: uppercase;
     color: #041421;
+}
+
+@media screen and (max-width: 1600px) {
+    .secondary-navbar a,
+    .primary-navbar-links a {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .secondary-navbar {
+        padding-top: 1.5%;
+        padding-bottom: 1.5%;
+    }
+    
+    .secondary-navbar a {
+        font-size: 10px;
+    }
+
+    .primary-navbar-links a {
+        font-size: 12px;
+    }
+
+    .secondary-navbar-links a:not(:last-child),
+    .login-link a:first-child {
+        margin-right: 30px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .secondary-navbar {
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    .secondary-navbar a {
+        font-size: 8px;
+    }
+
+    .primary-navbar-links a {
+        font-size: 10px;
+    }
+
+    .secondary-navbar-links a:not(:last-child),
+    .login-link a:first-child {
+        margin-right: 25px;
+    }
 }
