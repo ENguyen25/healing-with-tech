@@ -3,10 +3,11 @@ import ReactDOM from "react-dom";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faSquareGithub } from '@fortawesome/free-brands-svg-icons'
 
 import App from "./App";
 
-library.add(fas, faBars, faX);
+library.add(fas, faBars, faX, faLinkedin, faSquareGithub);
 
 ReactDOM.render(
   <React.StrictMode>

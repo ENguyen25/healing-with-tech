@@ -84,25 +84,11 @@
     }
 
     .post-summary {
-        font-size: 24px;
-    }
-
-    .post-lineup-header h5 {
-        font-size: 22px;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .post-title {
-        font-size: 20px;
-    }
-
-    .post-summary {
-        font-size: 22px;
-    }
-
-    .post-lineup-header h5 {
         font-size: 18px;
+    }
+
+    .post-lineup-header h5 {
+        font-size: 22px;
     }
 }
 
@@ -113,6 +99,18 @@
 }
 
 @media screen and (max-width: 426px) {
+    .post-title {
+        font-size: 20px;
+    }
+
+    .post-summary {
+        font-size: 20px;
+    }
+
+    .post-lineup-header h5 {
+        font-size: 18px;
+    }
+
     .category-section {
         margin-top: 30px;
     }

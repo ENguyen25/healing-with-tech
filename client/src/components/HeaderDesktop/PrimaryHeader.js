@@ -17,14 +17,14 @@ const PrimaryHeader = () => {
             alt="The Self-Care Coder: A Programmer's Path to Well-Being"
           />
         </div>
-        <div className="primary-navbar-links">
+        {/* <div className="primary-navbar-links">
           <Link to="/latest">Latest</Link>
           <Link to="/front-end">Front-End</Link>
           <Link to="/back-end">Back-End</Link>
           <Link to="/full-stack">Full-Stack</Link>
           <Link to="/career">Career</Link>
           <Link to="/self-care">Self-Care</Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

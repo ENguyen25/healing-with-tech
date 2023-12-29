@@ -36,7 +36,7 @@
   }
 
   .post-content-page {
-    font-size: 28px;
+    font-size: 18px;
   }
 
   .thumbnail-image-page {
@@ -45,20 +45,16 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .post-title-page {
-    font-size: 28px;
-  }
-  
-  .post-content-page {
-    font-size: 24px;
-  }
-  
   .thumbnail-image-page {
     height: 20em;
   }
 }
 
 @media screen and (max-width: 426px) {
+  .post-content-page {
+    font-size: 22px;
+  }
+
   .blog-post-page {
     padding-left: 0;
     padding-right: 0;

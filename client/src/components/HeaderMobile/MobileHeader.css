@@ -33,6 +33,7 @@
     left: -100%;
     transition: 350ms;
     padding-top: 3em;
+    z-index: 5;
     background-color: #e7e7e7;
 }
 

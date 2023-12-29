@@ -9,8 +9,8 @@ const Footer = () => {
       <div className="footer-links">
         <Link to='/about'>About</Link>
         <Link to='/contact'>Contact</Link>
-        <Link to='/career'>Career</Link>
-        <Link to='/self-care'>Self-Care</Link>
+        {/* <Link to='/career'>Career</Link>
+        <Link to='/self-care'>Self-Care</Link> */}
       </div>
       <div className="social-media-links"></div>
       <p className="copyright">&copy; 2023 <span>Evelyn Nguyen</span>, All Rights Reserved</p>

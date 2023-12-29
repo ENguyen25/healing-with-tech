@@ -1,5 +1,10 @@
 .about-page {
     display: flex;
+    margin-bottom: 5em;
+}
+
+.about-left, .about-right {
+    margin-top: 2em
 }
 
 .about-left {
@@ -7,8 +12,9 @@
     padding-right: 5em;
 }
 
-.about-left p:first-child {
-    margin-top: 2em;
+.about-left p:first-child,
+.about-right p:first-child {
+    margin-top: 0;
 }
 
 .about-right {
@@ -17,12 +23,45 @@
 
 .about-right img {
     width: 100%;
-    margin-top: 2em;
+}
+
+.contact-page {
+    width: 50%;
+    margin: 3em auto 5em;
+    text-align: center;
+}
+
+.contact-page h1 {
+    text-transform: lowercase;
+    color: #114538;
+    font-size: 20px;
+    margin-top: 3em;
+    margin-bottom: 0px;
+}
+
+.fa-square-github,
+.fa-linkedin {
+    font-size: 40px;
+    color: #5E8D83;
+    margin-top: 10px;
+}
+
+.fa-linkedin {
+    margin-right: 10px;
+}
+
+.fa-square-github:hover,
+.fa-linkedin:hover {
+    color: #999;
 }
 
 @media screen and (max-width: 1024px) {
-    .about-left p {
-        font-size: 24px;
+    .about-page p {
+        font-size: 16px;
+    }
+
+    .about-left {
+        padding-right: 3em;
     }
 }
 
@@ -31,7 +70,7 @@
         flex-direction: column-reverse;
     }
 
-    .about-left, .about-right {
+    .about-left, .about-right, .contact-page {
         width: 100%;
     }
 
@@ -39,9 +78,18 @@
         padding-right: 2em;
     }
 
+    .about-page p,
+    .contact-page p {
+        font-size: 22px;
+    }
+
     .about-right img {
         height: 15rem;
         object-fit: cover;
-        object-position: 10% 31%;
+        object-position: 10% 0%;
+    }
+
+    .contact-page {
+        text-align: left;
     }
 }
