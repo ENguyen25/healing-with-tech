@@ -15,7 +15,7 @@ const Posts = () => {
   return !posts ? (
     ""
   ) : (
-    <section className="category-section">
+    <section className="container category-section">
       <div className="post-lineup-header">
         <h5>Latest</h5>
       </div>

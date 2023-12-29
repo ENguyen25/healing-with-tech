@@ -1,13 +1,12 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import SecondaryHeader from '../components/Header/SecondaryHeader';
-import PrimaryHeader from '../components/Header/PrimaryHeader';
+import PrimaryHeader from '../components/HeaderDesktop/PrimaryHeader';
 
 const MainLayout = () => {
   return (
     <>
-        <PrimaryHeader />
-        <Outlet />
+      {window.innerWidth > 600 ? <PrimaryHeader /> : ''}
+      <Outlet />
     </>
   )
 }

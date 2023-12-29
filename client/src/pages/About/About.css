@@ -16,6 +16,32 @@
 }
 
 .about-right img {
-    width: 25rem;
+    width: 100%;
     margin-top: 2em;
+}
+
+@media screen and (max-width: 1024px) {
+    .about-left p {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about-page {
+        flex-direction: column-reverse;
+    }
+
+    .about-left, .about-right {
+        width: 100%;
+    }
+
+    .about-left {
+        padding-right: 2em;
+    }
+
+    .about-right img {
+        height: 15rem;
+        object-fit: cover;
+        object-position: 10% 31%;
+    }
 }

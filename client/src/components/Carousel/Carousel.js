@@ -14,12 +14,14 @@ const Carousel = () => {
   }, [data])
 
   return !post ? ('') : (
-    <section style={{ backgroundImage: `url(${post.image})` }} className='carousel'>
-      <div className="carousel-content">
-        <h1>{post.title}</h1>
-        <Link to={`/post/${post._id}`}>
-          <button>Read More</button>
-        </Link>
+    <section className={window.innerWidth > 600 ? 'container' : ''}>
+      <div style={{ backgroundImage: `url(${post.image})` }} className='carousel'>
+        <div className="carousel-content">
+          <h1>{post.title}</h1>
+          <Link to={`/post/${post._id}`}>
+            <button>Read More</button>
+          </Link>
+        </div>
       </div>
     </section>
   )

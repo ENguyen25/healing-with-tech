@@ -62,18 +62,8 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 426px) {
     .footer-links {
-        font-size: 8px;
-    }
-
-    .copyright {
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 375px) {
-    .footer-links {
-        gap: 1em;
+        gap: 1.8em;
     }
 }

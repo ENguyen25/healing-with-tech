@@ -14,7 +14,7 @@ const Home = () => {
   };
 
   return (
-    <section className='container'>
+    <section>
       <Carousel />
       <Posts />
     </section>
