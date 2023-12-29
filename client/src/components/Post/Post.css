@@ -1,6 +1,7 @@
 .blog-post-page {
   padding-left: 6.2%;
   padding-right: 6.2%;
+  padding-bottom: 5em;
 }
 
 .thumbnail-image-page {
@@ -29,23 +30,13 @@
   color: #041421;
 }
 
-@media screen and (max-width: 1600px) {
-  .post-title-page {
-    font-size: 40px;
-  }
-
-  .post-content-page {
-    font-size: 25px;
-  }
-}
-
 @media screen and (max-width: 1440px) {
   .post-title-page {
     font-size: 32px;
   }
 
   .post-content-page {
-    font-size: 20px;
+    font-size: 28px;
   }
 
   .thumbnail-image-page {
@@ -59,7 +50,7 @@
   }
   
   .post-content-page {
-    font-size: 18px;
+    font-size: 24px;
   }
   
   .thumbnail-image-page {

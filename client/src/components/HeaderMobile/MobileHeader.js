@@ -32,16 +32,16 @@ const MobileHeader = () => {
             icon="fa-solid fa-x"
             onClick={ToggleSidebar}
           />
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
+          <Link onClick={ToggleSidebar} to="/">Home</Link>
+          <Link onClick={ToggleSidebar} to="/about">About</Link>
+          <Link onClick={ToggleSidebar} to="/contact">Contact</Link>
           <div className="divider"></div>
-          <Link to="/latest">Latest</Link>
-          <Link to="/front-end">Front-End</Link>
-          <Link to="/back-end">Back-End</Link>
-          <Link to="/full-stack">Full-Stack</Link>
-          <Link to="/career">Career</Link>
-          <Link to="/self-care">Self-Care</Link>
+          <Link onClick={ToggleSidebar} to="/latest">Latest</Link>
+          <Link onClick={ToggleSidebar} to="/front-end">Front-End</Link>
+          <Link onClick={ToggleSidebar} to="/back-end">Back-End</Link>
+          <Link onClick={ToggleSidebar} to="/full-stack">Full-Stack</Link>
+          <Link onClick={ToggleSidebar} to="/career">Career</Link>
+          <Link onClick={ToggleSidebar} to="/self-care">Self-Care</Link>
         </div>
       </div>
     </>
